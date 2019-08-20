@@ -3,7 +3,6 @@ from os import path
 
 import requests
 
-
 RAPID_API_KEY = None
 
 
@@ -27,7 +26,7 @@ def get_prices_for(origin, destination, departure_date, return_date, country):
 
 
 def _init_query_session(origin, destination, departure_date, return_date, country):
-    print(f'Searching offers for {origin} -> {destination} ({country}, {departure_date}-{return_date})')
+    print(f'Searching offers for {origin} -> {destination} ({country}, {departure_date} - {return_date})')
     response = _request('pricing/v1.0', method='post', data={
         'outboundDate': departure_date,
         'inboundDate': return_date,
