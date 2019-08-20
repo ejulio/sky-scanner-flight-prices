@@ -20,9 +20,14 @@ pip install -r requirements.txt
 
 ```
 python flight_prices.py \
-    --origin "NVT/BR" --destination "RIOA" --country="BR" \
-    --departure-date "2019-09-17" --return-date "2019-09-21" \
-    --api-key "YOUR API KEY" --output "nvt-rio-flight-prices.csv"
+    --origin "NVT/BR" \
+    --country="BR" \
+    --destination "RIOA" \
+    --departure-date "2019-09-17" \
+    --return-date "2019-09-21" \
+    --api-key "YOUR API KEY" \
+    --output "flight-prices.csv" \
+    --output "summary.csv" \
 ```
 
 Please note the suffix `/BR` in `origin` is only required if you are booking flights from different origin countries.
