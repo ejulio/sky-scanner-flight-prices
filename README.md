@@ -27,7 +27,7 @@ python flight_prices.py \
     --return-date "2019-09-21" \
     --api-key "YOUR API KEY" \
     --output "flight-prices.csv" \
-    --output "summary.csv" \
+    --output "summary.csv"
 ```
 
 Please note the suffix `/BR` in `origin` is only required if you are booking flights from different origin countries.
