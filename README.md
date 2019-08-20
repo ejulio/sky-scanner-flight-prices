@@ -20,14 +20,19 @@ pip install -r requirements.txt
 
 ```
 python flight_prices.py \
-    --origin "NVT-sky" --destination "RIOA-sky" --country="BR" \
-    --departure-date "2019-09-17" --return-date "2019-09-21" \
-    --api-key "YOUR API KEY" --output "nvt-rio-flight-prices.csv"
+    --origin "NVT/BR" \
+    --country="BR" \
+    --destination "RIOA" \
+    --departure-date "2019-09-17" \
+    --return-date "2019-09-21" \
+    --api-key "YOUR API KEY" \
+    --output "flight-prices.csv" \
+    --output "summary.csv"
 ```
 
-Please note the suffix `-sky` in `origin` and `destination`.
-This is required because of Sky Scanner's API.
+Please note the suffix `/BR` in `origin` is only required if you are booking flights from different origin countries.
 `country` is the country to look for offers.
 This is usually the country of `origin` airport.
+If no specified on `origin` this value will be used.
 
 To get a list of airports, this might help https://rapidapi.com/skyscanner/api/skyscanner-flight-search?endpoint=5a9c9edde4b084deb4ea6195
