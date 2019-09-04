@@ -21,7 +21,7 @@ def parse_args():
     ap.add_argument('--return-date', type=str, required=True,
         help='Return date formatted as YYYY-MM-DD.')
 
-    ap.add_argument('--country', type=str, required=True,
+    ap.add_argument('--country', type=str, required=False,
         help='Country 2 digit Code. For example: "BR" for Brazil.')
 
     ap.add_argument('--api-key', type=str, required=True,
@@ -39,12 +39,10 @@ def parse_args():
 def build_query_queue(origin, destination, country):
     travels = product(origin.split(','), destination.split(','))
     for origin, destination in travels:
-        origin_country = country
         try:
-            temp = origin.split("/")
-            origin, origin_country = temp
+            (origin, origin_country) = origin.split("/")
         except:
-            pass
+            origin_country = country
 
         if origin == destination:
             print(f'Skipping same location ({origin} -> {destination}).')
@@ -79,7 +77,7 @@ if __name__ == '__main__':
                 print(f'No offers found for {query}')
         except Exception as e:
             print(f'EXCEPTION while processing {origin} -> {destination} (Enqueing again):: {e}.')
-            query_queue.append((origin, destination))
+            query_queue.append((origin, country, destination))
             time.sleep(2)
 
     print(f'Writing offers to {args.output}')
